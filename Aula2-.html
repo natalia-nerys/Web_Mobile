@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração de Componentes UI</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #6f42c1;
+            --secondary-color: #5a32a8;
+            --accent-color: #8c68cd;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+        
+        .component-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .custom-navbar {
+            background-color: var(--primary-color) !important;
+            margin-bottom: 30px;
+        }
+        
+        .custom-btn {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .custom-btn:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .custom-card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .custom-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .custom-card .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .custom-badge {
+            background-color: var(--accent-color);
+        }
+        
+        .custom-alert {
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .component-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-bootstrap-fill me-2"></i>
+                <span class="logo-text">UI Components</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Componentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Documentação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container component-container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4">Componentes de Interface</h1>
+                <p class="lead">Demonstração de diversos componentes UI utilizando Bootstrap</p>
+            </div>
+        </div>
+
+        <!-- Acordeão -->
+        <div class="component-section">
+            <h2 class="section-title">Acordeão Interativo</h2>
+            <div class="accordion" id="interactiveAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFirst" aria-expanded="true">
+                            Primeiro Item do Acordeão
+                        </button>
+                    </h2>
+                    <div id="collapseFirst" class="accordion-collapse collapse show" data-bs-parent="#interactiveAccordion">
+                        <div class="accordion-body">
+                            <strong>Conteúdo do primeiro item.</strong> Este é o conteúdo inicialmente visível do acordeão. 
+                            Ele demonstra como o componente funciona, mostrando e ocultando conteúdo ao clicar nos cabeçalhos.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecond">
+                            Segundo Item do Acordeão
+                        </button>
+                    </h2>
+                    <div id="collapseSecond" class="accordion-collapse collapse" data-bs-parent="#interactiveAccordion">
+                        <div class="accordion-body">
+                            <strong>Conteúdo do segundo item.</strong> Este conteúdo está inicialmente oculto e será exibido 
+                            quando o usuário clicar no cabeçalho correspondente.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThird">
+                            Terceiro Item do Acordeão
+                        </button>
+                    </h2>
+                    <div id="collapseThird" class="accordion-collapse collapse" data-bs-parent="#interactiveAccordion">
+                        <div class="accordion-body">
+                            <strong>Conteúdo do terceiro item.</strong> Mais um exemplo de conteúdo que pode ser exibido 
+                            ou ocultado conforme a interação do usuário com o componente.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alertas -->
+        <div class="component-section">
+            <h2 class="section-title">Sistema de Alertas</h2>
+            <div class="alert alert-primary custom-alert" role="alert">
+                Alerta primário - informações gerais.
+            </div>
+            <div class="alert alert-success custom-alert" role="alert">
+                Alerta de sucesso - ação bem-sucedida.
+            </div>
+            <div class="alert alert-warning custom-alert" role="alert">
+                Alerta de aviso - atenção necessária.
+            </div>
+            <div class="alert alert-danger custom-alert" role="alert">
+                Alerta de erro - problema que precisa ser resolvido.
+            </div>
+        </div>
+
+        <!-- Distintivos -->
+        <div class="component-section">
+            <h2 class="section-title">Sistema de Distintivos</h2>
+            <div class="d-flex flex-wrap gap-2">
+                <h3>Exemplo de título <span class="badge bg-primary custom-badge">Novo</span></h3>
+                <h4>Exemplo de título <span class="badge bg-success rounded-pill">5</span></h4>
+                <h5>Exemplo de título <span class="badge bg-warning text-dark">Em breve</span></h5>
+            </div>
+            
+            <div class="mt-3">
+                <p>Distintivos também podem ser usados inline: 
+                    <span class="badge bg-info">Informação</span>,
+                    <span class="badge bg-danger">Urgente</span>,
+                    <span class="badge bg-secondary">Secundário</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Navegação Breadcrumb -->
+        <div class="component-section">
+            <h2 class="section-title">Navegação Breadcrumb</h2>
+            <nav aria-label="Navegação breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Página Inicial</a></li>
+                    <li class="breadcrumb-item"><a href="#">Biblioteca</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Dados</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Botões -->
+        <div class="component-section">
+            <h2 class="section-title">Tipos de Botões</h2>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <button type="button" class="btn btn-primary">Primário</button>
+                <button type="button" class="btn btn-secondary">Secundário</button>
+                <button type="button" class="btn btn-success">Sucesso</button>
+                <button type="button" class="btn btn-danger">Perigo</button>
+                <button type="button" class="btn btn-warning">Aviso</button>
+                <button type="button" class="btn btn-info">Informação</button>
+            </div>
+            
+            <h4 class="mt-4">Grupos de Botões</h4>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-primary">Esquerda</button>
+                <button type="button" class="btn btn-outline-primary">Centro</button>
+                <button type="button" class="btn btn-outline-primary">Direita</button>
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="component-section">
+            <h2 class="section-title">Cartões Informativos</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            Cartão com Imagem
+                        </div>
+                        <img src="https://via.placeholder.com/300x150/6f42c1/ffffff?text=Placeholder" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Título do Cartão</h5>
+                            <p class="card-text">Texto descritivo do cartão que fornece informações sobre o conteúdo.</p>
+                            <a href="#" class="btn btn-primary">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            Cartão Simples
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Outro Título</h5>
+                            <p class="card-text">Conteúdo descritivo para este cartão específico com informações relevantes.</p>
+                            <a href="#" class="btn btn-outline-primary">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            Cartão com Lista
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Lista de Itens</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Primeiro item</li>
+                                <li class="list-group-item">Segundo item</li>
+                                <li class="list-group-item">Terceiro item</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mais componentes... -->
+        <div class="component-section">
+            <h2 class="section-title">Outros Componentes</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Barra de Progresso</h4>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Spinners de Carregamento</h4>
+                    <div class="d-flex justify-content-around">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                        <div class="spinner-border text-success" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                        <div class="spinner-border text-danger" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Demonstração de Componentes UI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Inicialização de componentes -->
+    <script>
+        // Inicializar tooltips
+        const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        tooltipElements.forEach(el => new bootstrap.Tooltip(el));
+        
+        // Inicializar popovers
+        const popoverElements = document.querySelectorAll('[data-bs-toggle="popover"]');
+        popoverElements.forEach(el => new bootstrap.Popover(el));
+        
+        // Configuração de toast
+        const toastTrigger = document.getElementById('showToastBtn');
+        const toastLiveExample = document.getElementById('liveToast');
+        
+        if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show();
+            });
+        }
+    </script>
+</body>
+</html>
